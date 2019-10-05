@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="p5/p5.min.js"></script>
+    <!-- <script src="p5/p5.sound.min.js"></script>-->
+    <script src="p5/p5.dom.min.js"></script>
+    <script src="Vector.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="main.js"></script>
+
+    <title> Forces </title>
+</head>
+<body style="display: flex">
+
+<script src="sketch.js"></script>
+
+<div id="display">
+<div id="canvas" class="left">
+
+</div>
+
+<div id="right">
+    <button onclick="addForce()" id="addForce" class="button">Add Force</button>
+
+    <div id="input-div">
+
+        <h2 style="margin-left:auto; margin-right:auto; margin-top: 10px; margin-bottom:10px"> Magnitude and Angle </h2>
+
+        <div class="force">
+            <input type="number" class="magnitude" value="0.01">
+            <input type="number" class="angle" value="240">
+        </div>
+
+        <div class="force">
+            <input type="number" class="magnitude" value="0.01">
+            <input type="number" class="angle" value="300">
+        </div>
+
+    </div>
+
+    <button onclick="applyForce()" id="applyForce" class="button">Apply Force</button>
+
+</div>
+</div>
+
+<div id="legend">
+
+    <div class="box" onclick="netForce()">
+        <div id="red">
+        </div>
+        <p class="legend-text"> Net Force </p>
+    </div>
+
+    <div class="box" onclick="contactForce()">
+        <div id="blue">
+        </div>
+        <p class="legend-text"> Contact Force </p>
+    </div>
+
+    <div class="box" onclick="forcesAdded()">
+        <div id="white">
+        </div>
+        <p class="legend-text"> Forces Added </p>
+    </div>
+
+    <div class="box"  onclick="resolveForce()">
+        <div id="green">
+        </div>
+        <p class="legend-text"> Resolved Net Force </p>
+    </div>
+
+</div>
+
+
+</body>
+</html>

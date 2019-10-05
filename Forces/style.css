@@ -1,0 +1,116 @@
+#input-div {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 10px;
+}
+
+.force {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.button {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+        background-color: #008CBA;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+}
+
+input {
+       padding: 0;
+       height: 30px;
+       position: relative;
+       left: 0;
+       outline: none;
+       border: 1px solid #cdcdcd;
+       border-color: rgba(0,0,0,.15);
+       background-color: white;
+       font-size: 16px;
+       text-align: center;
+           border-radius: 5px;
+
+       margin: 5px;
+}
+
+body {
+    background-color: #424242;
+    color: #FFFFFF;
+    display:flex;
+    flex-wrap: wrap;
+
+}
+
+#display {
+    width: 1100px;
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#applyForce {
+    margin-top: 30px;
+            background-color: #4CAF50;
+
+}
+
+#legend {
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    left: 12px;
+
+}
+
+#right {
+
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#blue {
+    background-color: #0000FF;
+    width: 50px;
+    height: 50px;
+}
+
+#red {
+    background-color: #FF0000;
+    width: 50px;
+    height: 50px;
+}
+
+#green {
+    background-color: #00FF00;
+    width: 50px;
+    height: 50px;
+}
+
+#white {
+    background-color: #FFFFFF;
+    width: 50px;
+    height: 50px;
+}
+
+.legend-text {
+    margin: 5px;
+}
+
+.box {
+    display: flex;
+}

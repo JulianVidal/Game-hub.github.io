@@ -1,0 +1,29 @@
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+    position: fixed;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    width: 100%;
+}
+
+#defaultCanvas0 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  position: absolute;
+  background-color: #EE66DD;
+  font-size: 35px;
+  padding: 10px;
+  text-align: center;
+  left: 75%;
+  width: 200px;
+  height: 75px;
+}

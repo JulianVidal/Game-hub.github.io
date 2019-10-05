@@ -1,0 +1,84 @@
+// if (partitions < w/wide && partitions <= partitions_max) {
+//   findPartition()
+// } else {
+//   //insertionSort()
+// }
+
+
+// function findPartition() {
+//
+//   let partitionIndex = partitions
+//   let rightSide = []
+//   let leftSide  = []
+//
+//   for (var i = 0; i < bars.length; i++) {
+//     let currentBar = bars.findIndex(bar => bar.pos.x == i * wide)
+//
+//     if (currentBar != partitionIndex) {
+//
+//       if (bars[currentBar].sizey < bars[partitionIndex].sizey) {
+//         leftSide.push(bars[currentBar])
+//       }
+//
+//       if (bars[currentBar].sizey > bars[partitionIndex].sizey) {
+//         rightSide.push(bars[currentBar])
+//       }
+//
+//     }
+//
+//   }
+//
+//   for (var i = 0; i < leftSide.length; i++) {
+//     leftSide[i].pos.x = i * wide
+//   }
+//
+//   for (var i = 0; i < rightSide.length; i++) {
+//     rightSide[i].pos.x = ((i + (leftSide.length + 1)) * wide)
+//   }
+//
+//   bars[partitionIndex].pos.x = leftSide.length * wide
+//   beep.play()
+//
+//   /*for (var i = 0; i < leftSide.length; i++) {
+//     if (leftSide[i] != undefined) {
+//       leftSide[i].color         =   color(255, 255, 0)
+//     }
+//   }
+//
+//   for (var i = 0; i < rightSide.length; i++) {
+//     if (rightSide[i] != undefined) {
+//       rightSide[i].color        =   color(0, 0, 255)
+//     }
+//   }*/
+//
+//
+//   bars[partitionIndex].color  =   color(255, 0, 0)
+//
+//   barDraw()
+//
+//   bars[partitionIndex].color  =   color(255)
+//
+//
+//   /*for (var i = 0; i < leftSide.length; i++) {
+//     if (leftSide[i] != undefined) {
+//       leftSide[i].color         =   color(255)
+//     }
+//   }
+//
+//   for (var i = 0; i < rightSide.length; i++) {
+//     if (rightSide[i] != undefined) {
+//       rightSide[i].color        =   color(255)
+//     }
+//   }
+//
+//   if (bars.findIndex(bar => bar.pos.x == 0) != -1) {
+//     bars[bars.findIndex(bar => bar.pos.x == 0)].color = '#FFFFFF'
+//   }*/
+//
+//
+//   partitions++
+//
+// //  if (partitions == partitions_max) {
+// //    partition = true
+// //  }
+// }

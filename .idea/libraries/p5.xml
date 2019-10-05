@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="p5" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/Forces/p5" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Forces/p5" />
+    </CLASSES>
+    <DOCUMENTATION>
+      <root url="https://p5js.org/reference/" />
+    </DOCUMENTATION>
+    <SOURCES />
+  </library>
+</component>
