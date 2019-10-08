@@ -1,5 +1,5 @@
-const width = 25;
-const height = 100;
+let width = 50;
+let height = 160;
 
 let rows = [1, 3, 5, 7];
 
@@ -22,10 +22,19 @@ let rowLockIndex = -1;
 
 let win = 0;
 
+let update = 0;
+
 const moves = [];
 
+let rowDeleted = false;
+
+let sel;
+
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(windowWidth, windowHeight);
+
+  width = windowWidth / 30;
+  height = windowHeight / 5;
 
   for (let i = 0; i < rows.length; i++) {
     board[i] = [];
@@ -42,14 +51,28 @@ function setup() {
       [0, 0, 1, 1, 1, 0, 0]
   ];*/
 
-    rows = [1, 1, 1, 3];
+    //rows = [1, 1, 1, 3];
 
-    buttonPos = createVector(230, 200);
-    buttonSize = createVector(240, 100);
+    buttonSize = createVector(windowWidth / 4, windowHeight/8);
+    buttonPos = createVector(windowWidth / 16, windowHeight / 2 - buttonSize.x);
+
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
   background('#222222');
+
+  if (update % 30 === 0) {
+
+  }
+  update++;
+  width = windowWidth / 30;
+  height = windowHeight / 5;
+  buttonSize = createVector(windowWidth / 4, windowHeight/8);
+  buttonPos = createVector(windowWidth / 16, windowHeight / (1.5) - buttonSize.x);
 
   drawBoard();
 
@@ -60,14 +83,15 @@ function draw() {
   noStroke()
   rect(buttonPos.x, buttonPos.y, buttonSize.x, buttonSize.y);
   fill(255);
-  textSize(28);
-  text("next Turn", buttonPos.x + 60, buttonPos.y + 60);
+  textSize(windowWidth / 48);
+  text("Next Turn", buttonPos.x + (buttonSize.y / (1.5)), buttonPos.y + (buttonSize.y / (1.5)));
 
     if (turn === 1 && win === 0) {
 
       if (AI) {
         console.log("AI move");
-          pick();
+        pick();
+
           rowLock = false;
           rowLockIndex = -1;
       }
@@ -80,7 +104,6 @@ function draw() {
 }
 
 function pick() {
-  console.clear();
     let rowAmount = 0;
     rows.forEach(num => num > 0 ? rowAmount++ : 5);
 
@@ -281,7 +304,7 @@ function mousePressed() {
 
     for (let j = 0; j < board[i].length; j++) {
 
-      if (mouseX > width * (j + 1) + (j * spacing) && mouseX < width * (j + 1) + (j * spacing) + width) {
+      if (mouseX > width * (j + 1) + (j * spacing) + (windowWidth / 2 - (width * (2 + 1) + (2 * spacing))) && mouseX < width * (j + 1) + (j * spacing) + width + (windowWidth / 2 - (width * (2 + 1) + (2 * spacing)))) {
         if (mouseY > height * (i + 0.3) + (i * spacing) && mouseY < height * (i + 0.3) + (i * spacing) + height) {
           if (!rowLock) {
             if (rowLockIndex === -1) {
@@ -289,6 +312,8 @@ function mousePressed() {
                 board[i][j] = 0;
                 rows[i]--;
                 rowLockIndex = i;
+                rowDeleted = true;
+
                 if (checkBoard()) {
                   win = 2;
                   console.log("I win");
@@ -314,8 +339,10 @@ function mousePressed() {
   }
 
   if (mouseX > buttonPos.x && mouseX < buttonPos.x + buttonSize.x) {
-    if (mouseY > buttonPos.y && mouseY < buttonPos.y + buttonSize.y) {
+    if (mouseY > buttonPos.y && mouseY < buttonPos.y + buttonSize.y && rowDeleted === true) {
       turn = 1;
+      rowDeleted = false;
+      console.log("Next Turn")
     }
   }
 }
@@ -325,7 +352,7 @@ function mouseDragged() {
 
       for (let j = 0; j < board[i].length; j++) {
 
-        if (mouseX > width * (j + 1) + (j * spacing) && mouseX < width * (j + 1) + (j * spacing) + width) {
+        if (mouseX > width * (j + 1) + (j * spacing) + (windowWidth / 2 - (width * (2 + 1) + (2 * spacing))) && mouseX < width * (j + 1) + (j * spacing) + width + (windowWidth / 2 - (width * (2 + 1) + (2 * spacing)))) {
           if (mouseY > height * (i + 0.3) + (i * spacing) && mouseY < height * (i + 0.3) + (i * spacing) + height) {
             if (!rowLock) {
               if (rowLockIndex === -1) {
@@ -333,6 +360,8 @@ function mouseDragged() {
                   board[i][j] = 0;
                   rows[i]--;
                   rowLockIndex = i;
+                  rowDeleted = true;
+
                   if (checkBoard()) {
                     win = 2;
                     console.log("I win");
@@ -408,7 +437,7 @@ function drawBoard() {
 
         for (let j = 0; j < board[i].length; j++) {
             if (board[i][j] > 0) {
-              if (mouseX > width * (j + 1) + (j * spacing) && mouseX < width * (j + 1) + (j * spacing) + width) {
+              if (mouseX > width * (j + 1) + (j * spacing) + (windowWidth / 2 - (width * (2 + 1) + (2 * spacing))) && mouseX < width * (j + 1) + (j * spacing) + width + (windowWidth / 2 - (width * (2 + 1) + (2 * spacing)))) {
                 if (mouseY > height * (i + 0.3) + (i * spacing) && mouseY < height * (i + 0.3) + (i * spacing) + height) {
                   fill(100);
                 } else {
@@ -417,7 +446,7 @@ function drawBoard() {
               } else {
                 fill('#EEEEEE');
               }
-                rect(width * (j + 1) + (j * spacing), height * (i + 0.3) + (i * spacing), width, height);
+                rect(width * (j + 1) + (j * spacing) + (windowWidth / 2 - (width * (2 + 1) + (2 * spacing))), height * (i + 0.3) + (i * spacing), width, height);
             }
         }
 
